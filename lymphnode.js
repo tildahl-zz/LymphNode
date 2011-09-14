@@ -7,7 +7,7 @@ var http = require('http'),
 function LymphNode() {
   this.handlers = [];
   this.filters = [];
-	this.endingSlash = new RegExp('/$');
+  this.endingSlash = new RegExp('/$');
 }
 
 LymphNode.newServer = function(port) {
@@ -117,9 +117,9 @@ LymphNode.prototype.findHandler = function(urlObj) {
 
 LymphNode.prototype.processRequest = function(req, res) {
   var urlObj = url.parse(req.url, true);
-	if (!this.endingSlash.test(urlObj.pathname)) {
-		urlObj.pathname = urlObj.pathname + '/';
-	}
+  if (!this.endingSlash.test(urlObj.pathname)) {
+    urlObj.pathname = urlObj.pathname + '/';
+  }
 
   //TODO: call any filters
 
